@@ -11,6 +11,14 @@
 		public function tambahKecepatan(){
 			return $this->kecepatan += 10;
 		}
+
+		public function kurangiKecepatan(){
+
+		}
+
+		public function gantiTransmisi(){
+			
+		}
 	}
 
 	$avanza = new Mobil;
