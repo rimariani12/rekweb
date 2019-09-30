@@ -1,11 +1,14 @@
 <?php 
 
  class Produk{
+ 	//property
  	public  $judul = "judul",
  			$penulis = "penulis",
  			$penerbit = "penerbit",
  			$harga = 30000;
 
+
+ 	//method
  	public function getLabel(){
  		return "$this->penulis, $this->penerbit";
  	}
@@ -20,6 +23,7 @@
  // $produk2->tambahProperty = "hahaha";
  // var_dump($produk2);
 
+//instansiasi //object
 $produk3 = new Produk();
 $produk3->judul = "Naruto";
 $produk3->penulis = "Masashi Kishimoto";
