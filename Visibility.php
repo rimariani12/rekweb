@@ -4,8 +4,11 @@
  	//property
  	public  $judul,
  			$penulis,
- 			$penerbit,
- 			$harga;
+ 			$penerbit;
+
+ 	protected $diskon = 0;
+
+ 	private $harga;
  		 	
 
  			//konstrktor
@@ -18,11 +21,17 @@
  				
  			}
 
+ 			
 
- 	//method
- 	public function getLabel(){
- 		return "$this->penulis, $this->penerbit";
- 	}
+ 			public function getHarga(){
+				return $this->harga - ($this->harga * $this->diskon / 100);
+			}
+
+
+ 			//method
+ 			public function getLabel(){
+ 				return "$this->penulis, $this->penerbit";
+ 			}
 
  	public function getInfoProduk(){
  		// Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
@@ -57,6 +66,10 @@ class Game extends Produk{
 		$this->waktuMain = $waktuMain;
 	}
 
+	public function setDiskon($diskon){
+ 		$this->diskon = $diskon;
+ 	}
+
 	public function getInfoProduk(){
 		$str = "Game : " . parent::getInfoProduk() . " - {$this->waktuMain} Jam.";
 		return $str;
@@ -72,10 +85,14 @@ class Game extends Produk{
  
 
 //instansiasi //object
-$produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100, 0);
-$produk2 = new Game("Uncharted", "Neil Druckmann", "Sony Computer", 250000, 0, 50);
+$produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100);
+$produk2 = new Game("Uncharted", "Neil Druckmann", "Sony Computer", 250000, 50);
 
 
 echo $produk1->getInfoProduk();
 echo "<br>";
 echo $produk2->getInfoProduk();
+echo "<hr>";
+
+$produk2->setDiskon(50);
+echo $produk2->getHarga();
