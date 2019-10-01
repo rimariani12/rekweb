@@ -25,7 +25,7 @@
  	}
 
  	public function getInfoProduk(){
- 		
+ 		// Komik : Naruto | Masashi Kishimoto, Shonen Jump (Rp. 30000) - 100 Halaman.
  		$str = " {$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
 
  		return $str;
@@ -72,8 +72,8 @@ class Game extends Produk{
  
 
 //instansiasi //object
-$produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100);
-$produk2 = new Game("Uncharted", "Neil Druckmann", "Sony Computer", 250000, 50);
+$produk1 = new Komik("Naruto", "Masashi Kishimoto", "Shonen Jump", 30000, 100, 0);
+$produk2 = new Game("Uncharted", "Neil Druckmann", "Sony Computer", 250000, 0, 50);
 
 
 echo $produk1->getInfoProduk();
