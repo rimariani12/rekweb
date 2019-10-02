@@ -4,9 +4,9 @@ interface InfoProduk {
 	public function getInfoProduk();
 }
 
-class Produk{
+abstract class Produk{
  	//property
- 	private $judul,
+ 	protected $judul,
  			$penulis,
  			$penerbit,
  			$harga,
@@ -67,12 +67,8 @@ class Produk{
  				return "$this->penulis, $this->penerbit";
  			}
 
- 			public function getInfo(){
- 	
- 				$str = " {$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+ 			abstract public function getInfo();
 
- 				return $str;
- 			}
  }
 
  class Komik extends Produk implements InfoProduk {
@@ -83,6 +79,13 @@ class Produk{
  		parent::__construct($judul, $penulis, $penerbit, $harga );
  		$this->jmlHalaman = $jmlHalaman;
 
+ 	}
+
+ 	public function getInfo(){
+ 	
+ 		$str = " {$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+
+ 		return $str;
  	}
 
 
@@ -100,6 +103,12 @@ class Game extends Produk implements InfoProduk {
 		$this->waktuMain = $waktuMain;
 	}
 
+	public function getInfo(){
+ 	
+ 		$str = " {$this->judul} | {$this->getLabel()} (Rp. {$this->harga})";
+
+ 		return $str;
+ 	}
 	
 	public function getInfoProduk(){
 		$str = "Game : " . $this->getInfo() . " - {$this->waktuMain} Jam.";
